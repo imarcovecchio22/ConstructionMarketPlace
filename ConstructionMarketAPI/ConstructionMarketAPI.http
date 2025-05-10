@@ -1,0 +1,6 @@
+@ConstructionMarketAPI_HostAddress = http://localhost:5279
+
+GET {{ConstructionMarketAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

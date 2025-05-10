@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./search-animations.css";
+@import "./accessibility.css";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 100% 35%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos minimalistas para la aplicación */
+.professional-gradient {
+  background: linear-gradient(to right, #f8fafc, #f1f5f9);
+}
+
+.dark .professional-gradient {
+  background: linear-gradient(to right, #0f172a, #1e293b);
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.dark .card-hover-effect:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+}
+
+.icon-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.icon-hover-effect:hover {
+  transform: scale(1.2);
+}
+
+/* Animaciones personalizadas */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.hover-pulse:hover {
+  animation: pulse 2s infinite;
+}
+
+/* Animación para el botón de búsqueda */
+.search-button-animation {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.search-button-animation::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(90deg, #0078c8, #0e96ea, #0078c8);
+  background-size: 200% 200%;
+  border-radius: var(--radius);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark .search-button-animation::before {
+  background: linear-gradient(90deg, #0060a3, #0078c8, #0060a3);
+}
+
+.search-button-animation:hover::before {
+  opacity: 0.6;
+  animation: gradient-animation 2s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Efecto de pulso para destacar el botón */
+.search-button-animation:focus {
+  animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 150, 234, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(14, 150, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 150, 234, 0);
+  }
+}
+
+/* Animación para modo oscuro */
+.dark .search-button-animation:focus {
+  animation: dark-pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes dark-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 120, 200, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 120, 200, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 120, 200, 0);
+  }
+}
+
+/* Efecto de brillo en hover */
+.search-button-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.dark .search-button-animation::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.search-button-animation:hover::after {
+  left: 100%;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    min-height: 2.5rem;
+  }
+
+  .card-hover-effect:hover {
+    transform: translateY(-3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-hover-effect:hover,
+    .icon-hover-effect:hover,
+    .hover-pulse:hover {
+      transform: none;
+      animation: none;
+    }
+
+    .search-button-animation::before,
+    .search-button-animation::after {
+      animation: none;
+    }
+  }
+}
+
+/* Animación para el menú móvil */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-enter {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Mejoras de accesibilidad para móviles */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Optimizar scroll en móviles */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Estilos específicos para modo oscuro */
+.dark .theme-toggle-icon {
+  color: #e2e8f0;
+}
+
+/* Transición suave entre temas */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mejoras de contraste para modo oscuro */
+.dark .high-contrast {
+  color: #ffffff;
+}
+
+.dark .medium-contrast {
+  color: #e2e8f0;
+}
+
+.dark .low-contrast {
+  color: #94a3b8;
+}
+
+/* Sombras específicas para modo oscuro */
+.dark .shadow-custom {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,63 @@
+/* Estilos para mejorar la accesibilidad */
+
+/* Mejorar el indicador de foco para navegación por teclado */
+:focus-visible {
+  outline: 2px solid var(--professional-600);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+.dark :focus-visible {
+  outline-color: var(--professional-400);
+}
+
+/* Reducir animaciones para usuarios que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Aumentar el tamaño de los objetivos táctiles para mejorar la accesibilidad móvil */
+@media (max-width: 640px) {
+  button,
+  [role="button"],
+  a.btn,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Mejorar la legibilidad del texto */
+body {
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Asegurar que los textos tengan suficiente contraste */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground) / 0.9);
+}
+
+.dark .text-muted-foreground {
+  color: hsl(var(--muted-foreground) / 0.9);
+}

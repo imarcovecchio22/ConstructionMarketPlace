@@ -1,0 +1,52 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 150, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(14, 150, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 150, 234, 0);
+  }
+}
+
+.search-suggestion-enter {
+  animation: fadeIn 0.2s ease-out, slideDown 0.2s ease-out;
+}
+
+.search-filter-enter {
+  animation: slideDown 0.3s ease-out;
+}
+
+.search-button-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.filter-badge {
+  transition: all 0.2s ease;
+}
+
+.filter-badge:hover {
+  background-color: rgba(14, 150, 234, 0.2);
+  transform: translateY(-1px);
+}
