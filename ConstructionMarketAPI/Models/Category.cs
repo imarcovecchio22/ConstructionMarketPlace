@@ -1,8 +1,19 @@
+using System.Collections.Generic;
+
+namespace ContructionMarketAPI.Models
+{
 public class Category
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string? Description { get; set; }
 
-    public ICollection<Service> Services { get; set; } = new List<Service>();
+    // Relaciones
+        public virtual ICollection<Service> Services { get; set; }
+
+        public Category()
+        {
+            Services = new HashSet<Service>();
+        }
+}
 }

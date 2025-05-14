@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ContructionMarketAPI.Data;
 
 
 [ApiController]
 [Route("api/[controller]")]
 public class ProfessionalsController : ControllerBase
 {
-    private readonly AppDbContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public ProfessionalsController(AppDbContext context)
+    public ProfessionalsController(ApplicationDbContext context)
     {
         _context = context;
     }

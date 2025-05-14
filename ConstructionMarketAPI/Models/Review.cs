@@ -1,18 +1,21 @@
+using System.Collections.Generic;
+
+namespace ContructionMarketAPI.Models
+{
 public class Review
 {
     public int Id { get; set; }
+        public int UserId { get; set; }
+        public int ProfessionalId { get; set; }
+        public int? BookingId { get; set; } // Opcional, puede ser nulo
+        public decimal Rating { get; set; }
+        public string Comment { get; set; }
+        public string Project { get; set; }
+        public DateTime Date { get; set; }
 
-    public int UserId { get; set; }
-    public User User { get; set; } = null!;
-
-    public int ProfessionalId { get; set; }
-    public Professional Professional { get; set; } = null!;
-
-    public int? BookingId { get; set; } // Opcional, si viene de una contratación
-    public Booking? Booking { get; set; }
-
-    public int Rating { get; set; }
-    public string Comment { get; set; } = null!;
-    public string? Project { get; set; }
-    public DateTime Date { get; set; }
+        // Relaciones
+        public virtual User User { get; set; }
+        public virtual Professional Professional { get; set; }
+        public virtual Booking Booking { get; set; } // Opcional
+}
 }

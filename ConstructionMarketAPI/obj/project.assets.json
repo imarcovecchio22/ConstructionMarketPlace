@@ -8133,19 +8133,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nacho\\.nuget\\packages\\": {}
+    "C:\\Users\\USUARIO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nacho\\OneDrive\\Documentos\\Cmarketplace\\ConstructionMarketAPI\\ConstructionMarketAPI.csproj",
+      "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\ConstructionMarketPlace\\ConstructionMarketAPI\\ConstructionMarketAPI.csproj",
       "projectName": "ConstructionMarketAPI",
-      "projectPath": "C:\\Users\\nacho\\OneDrive\\Documentos\\Cmarketplace\\ConstructionMarketAPI\\ConstructionMarketAPI.csproj",
-      "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nacho\\OneDrive\\Documentos\\Cmarketplace\\ConstructionMarketAPI\\obj\\",
+      "projectPath": "C:\\Users\\USUARIO\\Documents\\ConstructionMarketPlace\\ConstructionMarketAPI\\ConstructionMarketAPI.csproj",
+      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USUARIO\\Documents\\ConstructionMarketPlace\\ConstructionMarketAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8163,6 +8163,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8215,7 +8220,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

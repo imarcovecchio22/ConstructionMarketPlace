@@ -1,13 +1,24 @@
-public class Professional
-{
-    public int Id { get; set; }
-     public int UserId { get; set; }  // Clave foránea explícita
-    public User User { get; set; } = null!;
-    public string FullName { get; set; } = null!;
-    public string Bio { get; set; } = null!;
-    public string? Location { get; set; }
-    public double Rating { get; set; }
+using System.Collections.Generic;
 
-    public ICollection<ProfessionalService> Services { get; set; } = new List<ProfessionalService>();
-    public ICollection<Review> Reviews { get; set; } = new List<Review>();
+namespace ContructionMarketAPI.Models
+{
+
+    public class Professional
+    {
+    public int Id { get; set; }
+    public string FullName { get; set; }
+        public string Bio { get; set; }
+        public string Location { get; set; }
+        public decimal Rating { get; set; }
+
+        // Relaciones
+        public virtual ICollection<ProfessionalService> ProfessionalServices { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
+
+        public Professional()
+        {
+            ProfessionalServices = new HashSet<ProfessionalService>();
+            Reviews = new HashSet<Review>();
+        }
+    }
 }
