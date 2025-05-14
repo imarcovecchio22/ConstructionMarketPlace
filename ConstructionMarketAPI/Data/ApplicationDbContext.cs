@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using ContructionMarketAPI.Models;
+using ConstructionMarketAPI.Models;
 
 
-namespace ContructionMarketAPI.Data
+namespace ConstructionMarketAPI.Data
 {
     public class ApplicationDbContext : DbContext
     {

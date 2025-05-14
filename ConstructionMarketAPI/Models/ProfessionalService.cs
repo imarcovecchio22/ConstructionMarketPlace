@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ContructionMarketAPI.Models
+namespace ConstructionMarketAPI.Models
 {
 
 public class ProfessionalService

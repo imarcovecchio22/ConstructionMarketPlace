@@ -1,6 +1,6 @@
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
-using ContructionMarketAPI.Data;
+using ConstructionMarketAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,16 +16,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-    builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("AllowReactApp",
-            policy =>
-            {
-                policy.WithOrigins("http://localhost:5173")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            });
-    }); 
+    // Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        {
+        policy.WithOrigins("http://localhost:3000") // Cambia esto a la URL de tu frontend
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+        });
+}); 
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowFrontend"); // Usar la política CORS
 app.UseAuthorization();
 app.MapControllers();
 
